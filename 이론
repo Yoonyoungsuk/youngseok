@@ -1,0 +1,173 @@
+
+■ CSS는 무엇이냐
+- Cascading Style Sheets
+- 웹페이지 스타일링 하는 것이다~
+- html에서 태그와 동시에 스타일링 하기는 너무 복잡해서 따로 스타일을 빼버렸쥐~
+- 반복적으로 사용할 수 있다!
+- html의 <title>Document</title> 밑에 작성한다
+  <style> 
+
+   요기에 작성해준다!!!
+
+  </style>
+
+01.기본구조
+  
+  선택자(selecter){
+      속성 : 속성값
+  }
+
+02.글자색상
+
+ h1{
+    color: blue;
+}
+
+03.폰트조정
+
+p{
+    font-weight:bold;
+    font-size: 50px;
+    font-family:fantasy;
+}
+
+04.선택자
+ 1.전체선택자 : *
+ 2.타입(태그)선택자 : 각태그명
+ 3.아이디선택자 : "#" 기호로 표시 , 한문서에서 한번밖에 못쓴다. 공간분할시 (div)
+ 4.클래스선택자 : "." 점 기호로 표시 , 반복적 사용 가능
+  -.클래스명  : 클래스명은 아무거나 넣어도 상관없다
+  - 클래스명을 원하는 태그에 속성값으로 넣어준다 class = 클래스명
+ 5.계층선택자 : 계층적 구조로 요소 선택
+  -자손 : body li (body안에 있는 모든것)
+  -자식 : body>ul>li (body 밑 ul밑 li 모두)
+  -형제(근접후행) : p+ul (p바로옆에있는 ul만)
+  -형제(후행) : h1~p ( h1옆에 있는 모든 p)
+ 6.그룹선택자 : 태그를 "," 를 이용해서 여서태그를 한번에 변경
+ 7.반응선택자 
+  -태그:active : 마우스로 클릭할때 변경
+  -태그:hover : 마우스를 올리면 변경
+
+*선택자예시
+  <style>
+        div:hover {
+            color: rgb(192, 112, 216);
+        }
+
+        div:active {
+            color: rgb(212, 9, 77);
+        }
+
+        ul,
+        summary {
+            color: blue;
+        }
+
+        .liitem {
+            color: red;
+        }
+
+        .li {
+            color: seagreen;
+            font-family: 궁서체;
+            font-style: italic;
+        }
+
+        li+span {
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body bgcolor="lightgray">
+
+    <div>YOUTUBE</div>
+
+
+    <details>
+        <summary>올바른 개발자 생활</summary>
+        <ul>
+            <li>쉬는시간에 5분정도 먼산 본다</li>
+            <li>1시간마다 스트레칭한다</li>
+            <li>거북목이 되지 않는다</li>
+        </ul>
+    </details>
+
+    <strong>연수생수칙</strong>
+
+    <ol>
+        <li class="liitem">지각하지않기</li>
+        <li class="liitem">결석하지않기</li>
+        <span>(불가피할땐 미리 말하기)</span>
+        <li class="li"><i>복습하기</i></li>
+    </ol>
+
+05.공간분할태그
+
+ 1.<div> : 큰영역분할
+ 2.<p> : 문단분할
+ 3.<span> : 세부적인 스타일
+
+06.가시속성(눈에보이는속성)  display
+
+ 1.display : block         (웹페이지 가로공간 모두) <p>
+ 2.display : inline        (컨텐츠 끝나는 지점까지 너비. 단, 너비높이 지정x)<span>
+   *개별영역을 가진다
+ 3.display : inline-block  (컨텐츠 끝나는 지점까지 너비. 너비높이 지정o)
+ 4.display : None          (해당요소를 보이지않게함) 
+   *평소에는 안보이다가 누르거다 가져다대면 보이게하는
+
+07.박스(box) 모델
+ - 요소의 부피감을 결정
+
+   1.box-shadow : x축값 y축값 흐림정도 색상
+
+   2.margin 은 박스밖의 여백? 
+    -하나만적으면 모든방향적용, 특정여백주고싶으면 양식에 따라 값입력
+    -margin-방향  도 사용가능
+    -margin이 두객체에 각각 맞물리는 방향으로있으면 더 큰값 하나로 적용
+
+   3.border 는 둘사이의 경계선
+    - border : 두께 종류 색깔
+    - 방향별 별도지정 가능
+
+   4.padding 은 박스안의 여백?
+    -margin과 방향 동일하다
+    -그냥 padding만주면 html 사이즈가 커져버린다
+      *box-sizing 속성을 사용
+       content-box : 기본값으로 요소크기 변함
+       border-box  : 요소크기 변하지 않는데
+
+08.포지션(position)
+ -각 객체의 위치를 지정해줌
+
+   1.static : 기본값 태그순서대로배치
+
+   2.relative : 근접한 태그기준으로 상하좌우 / 바로 위 기준
+
+   3.absolute : 절대위치좌표
+
+   4.fixed : 화면을 기준으로 절대위치좌표
+   
+  *한꺼번에움직이기
+
+        #b,#c,#d{
+            position : absolute;
+            left:100px
+            top:100px
+        }
+        body{
+            margin=0px;
+        }
+
+
+        <div id=a>
+            <div id=b>
+                <div id=c>
+                    <div id=d></div>
+                </div>
+            </div>
+        </div>
+ 
+ 
